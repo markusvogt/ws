@@ -13,7 +13,7 @@ url:                 https://markusvogt.github.io/ws/
 baseurl:             /ws/
 
 # Styleguide Settings
-sg_styles: /styleguide/style.css
+sg_styles: styleguide/style.css
 
 # Assets
 #
