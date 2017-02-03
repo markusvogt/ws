@@ -1,0 +1,82 @@
+// ## Colors
+// Please use the following tool when adding a new color http://chir.ag/projects/name-that-color
+//
+// scss-lint:disable ColorVariable
+$g-common--funkotron-palette: (
+        'black': (
+                'black-solid': #000,
+                'blarz': #171b2d
+        ),
+        'white': (
+                'white-solid': #fff
+        ),
+        'gray': (
+                'boulder': #787878,
+                'cod-gray': #1d1d1d,
+                'mine-shaft': #393939,
+                'lighter-gray': #d8d8d8,
+                'dusty-gray': #9b9b9b,
+                'gray': #888,
+                'gray-solid': #808080,
+                'mercury': #e4e4e4,
+                'river-bed': #485960,
+                'tundora': #4d4d4d,
+                'cape-cod': #454a4a,
+                'pampas': #f9f8f6,
+                'satin-linen': #ede9e1,
+                "outer-space": #383e42,
+                "wild-sand": #f5f5f5
+        ),
+        'beige': (
+                'cararra': #edece8,
+                'desert-storm': #f9f9f8
+        ),
+        'blue': (
+                'blue-lagoon': #00728f,
+                'bondi-blue': #008cbd,
+                'botticelli': #c8d8e2,
+                'chambray': #334f80,
+                'dodger-blue': #20b0ff,
+                'matisse': #246ea7,
+                'scorpion': #575757,
+                'twilight-blue': #064b71,
+                'prussian-blue': #003a5a, // welt blue -> don't use this color name, use only: welt-color('welt-blue')
+                'teal-blue': #064b71
+        ),
+        'orange': (
+                'carrot-orange': #f18825, // N24 orange -> don't use this color name, use only a color from $g-common--welt-palette
+        ),
+        'red': (
+                'disco': #741057,
+                'red-solid': #f00,
+                'shiraz': #b71336,
+                'cardinal': #b91435
+        ),
+        'green': (
+                'hippie-green': #64964b,
+                'tropical-rain-forest': #006650,
+                'summer-green': #99b7a5
+        ),
+        'yellow': (
+                'golden-dream': #edc31e
+        )
+) !default;
+
+// ## Welt-Palette
+// Internal names for better readability. 'welt-blue' is better than 'prussian-blue'
+// [1] indicates the live state of content
+// [2] indicates breaking news content
+// [3] indicates gray bullet points
+// [4] indicates channel teaser section + topic text
+// [5] indicates all highlighted (normally 'welt-orange') elements in channel teaser
+$g-common--welt-palette: (
+        'welt-blue': 'prussian-blue',
+        'welt-orange': 'carrot-orange',
+        'live-state': 'carrot-orange', // [1]
+        'breaking': 'carrot-orange', // [2]
+        'gray-bullets': 'cararra', // [3]
+        'channel-gray': 'outer-space', // [4]
+        'channel-highlight': 'summer-green' // [5]
+) !default;
+
+// scss-lint:enable ColorVariable
