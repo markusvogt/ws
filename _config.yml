@@ -15,6 +15,9 @@ baseurl:             /ws/
 # Styleguide Settings
 sg_styles: styleguide/style.css
 
+layouts_dir: styleguide/_layouts
+includes_dir: styleguide/_includes
+
 # Assets
 #
 # We specify the directory for Jekyll so we can use @imports.
