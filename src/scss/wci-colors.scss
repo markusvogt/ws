@@ -2,7 +2,7 @@
 // Please use the following tool when adding a new color http://chir.ag/projects/name-that-color
 //
 // scss-lint:disable ColorVariable
-$g-common--funkotron-palette: (
+$wci--color-palette: (
         'black': (
                 'black-solid': #000,
                 'blarz': #171b2d
@@ -69,7 +69,7 @@ $g-common--funkotron-palette: (
 // [3] indicates gray bullet points
 // [4] indicates channel teaser section + topic text
 // [5] indicates all highlighted (normally 'welt-orange') elements in channel teaser
-$g-common--welt-palette: (
+$wci--welt-palette: (
         'welt-blue': 'prussian-blue',
         'welt-orange': 'carrot-orange',
         'live-state': 'carrot-orange', // [1]

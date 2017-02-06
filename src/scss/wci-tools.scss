@@ -1,16 +1,16 @@
 // ## Helper for colors
 
 @function color($color) {
-  $color-keys: map-keys($g-common--funkotron-palette);
+  $color-keys: map-keys($wci--color-palette);
 
   @each $key in $color-keys {
-    $color-map: map-get($g-common--funkotron-palette, $key);
+    $color-map: map-get($wci--color-palette, $key);
 
     @if map-has-key($color-map, $color) {
       @return map-get($color-map, $color);
     }
   }
-  @warn "No color found for `#{$color}` in `$g-common--funkotron-palette` map.";
+  @warn "No color found for `#{$color}` in `$wci--color-palette` map.";
 }
 
 
@@ -19,11 +19,11 @@
 }
 
 @function get-welt-color($named-color) {
-  @if map-has-key($g-common--welt-palette, $named-color) {
-    $palette-key: map-get($g-common--welt-palette, $named-color);
+  @if map-has-key($wci--welt-palette, $named-color) {
+    $palette-key: map-get($wci--welt-palette, $named-color);
     @return $palette-key;
   } @else {
-    @warn "No color found for `#{$named-color}` in `$g-common--welt-palette` map.";
+    @warn "No color found for `#{$named-color}` in `$wci--welt-palette` map.";
   }
 }
 
