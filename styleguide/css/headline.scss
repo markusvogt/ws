@@ -7,5 +7,5 @@ h1 {
 .box--is-framed {
   color: wci-color('welt-orange');
   padding: 10px;
-  border: 3px solid wci-color('channel-highlight');
+  border: 3px solid wci-color('channel-highlight', .4);
 }
