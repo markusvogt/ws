@@ -7,14 +7,16 @@
     $color-map: map-get($wci--color-palette, $key);
 
     @if map-has-key($color-map, $color) {
-      @return map-get($color-map, $color);
+      //@return map-get($color-map, $color);
+      @return rgba(map-get($color-map, $color), 1);
     }
   }
   @warn "No color found for `#{$color}` in `$g-common--funkotron-palette` map.";
 }
 
-@function color-a($color, $alpha: 1) {
-  @return rgba(color($color), $alpha);
+@function color-a($color, $alpha) {
+  //@return rgba(color($color), $alpha);
+  @return color($color);
 }
 
 @function get-welt-color($named-color) {
@@ -27,15 +29,6 @@
 }
 
 // ## Welt colors
-// For named colors like 'welt-blue' or 'live-state' for a better readability.
-//
-// usage e.g.:
-// welt-color('welt-blue')
-
-@function welt-color($named-color) {
-  @return color(get-welt-color($named-color));
-}
-
 @function wci-color($named-color, $alpha: 1) {
   @return color-a(get-welt-color($named-color), $alpha);
 }
