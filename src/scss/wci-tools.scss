@@ -2,7 +2,7 @@
 
 
 
-@function color($color, $alpha: 1) {
+@function color($color, $alpha) {
   $color-keys: map-keys($wci--color-palette);
 
   @each $key in $color-keys {
@@ -32,6 +32,6 @@
 // usage e.g.:
 // welt-color('welt-blue')
 
-@function wci-color($named-color, $alpha) {
+@function wci-color($named-color, $alpha: 1) {
   @return color(get-welt-color($named-color), $alpha);
 }
