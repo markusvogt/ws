@@ -1,6 +1,6 @@
 // ## Helper for colors
 
-@function color($color) {
+@function color($color, $alpha) {
   $color-keys: map-keys($wci--color-palette);
 
   @each $key in $color-keys {
@@ -8,7 +8,7 @@
 
     @if map-has-key($color-map, $color) {
       //@return map-get($color-map, $color);
-      @return rgba(map-get($color-map, $color), .3);
+      @return rgba(map-get($color-map, $color), $alpha);
     }
   }
   @warn "No color found for `#{$color}` in `$g-common--funkotron-palette` map.";
@@ -30,5 +30,5 @@
 
 // ## Welt colors
 @function wci-color($named-color, $alpha: 1) {
-  @return color-a(get-welt-color($named-color), $alpha);
+  @return color(get-welt-color($named-color), $alpha);
 }
