@@ -1,5 +1,20 @@
 // ## Helper for colors
 
+
+@function wci-color($wci-color, $alpha: 1) {
+  $wci-color-keys: map_keys($wci--welt-palette);
+
+  @each $wci-key in $wci-color-keys {
+    $wci-color-map: map_get($wci--welt-palette, $wci-key);
+
+    @if map_has_key($wci-color-map, $wci-color) {
+      @return rgba(map_get($wci-color-map, $wci-color), $alpha);
+    }
+  }
+  @warn "No color found for `#{$wci-color}` in `$wci--welt-palette` map.";
+}
+
+/*
 @function color($color) {
   $color-keys: map-keys($wci--color-palette);
 
@@ -27,12 +42,15 @@
   }
 }
 
+*/
+
 // ## Welt colors
 // For named colors like 'welt-blue' or 'live-state' for a better readability.
 //
 // usage e.g.:
 // welt-color('welt-blue')
 
+/*
 @function welt-color($named-color) {
   @return color(get-welt-color($named-color));
 }
@@ -40,3 +58,4 @@
 @function welt-color-a($named-color, $alpha: 1) {
   @return color-a(get-welt-color($named-color), $alpha);
 }
+*/

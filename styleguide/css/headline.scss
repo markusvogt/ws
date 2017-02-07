@@ -1,11 +1,11 @@
 h1 {
-  color: welt-color('welt-blue');
-  border-bottom: 2px solid welt-color('welt-orange');
+  color: wci-color('welt-blue');
+  border-bottom: 2px solid wci-color('welt-orange');
   font-family: sans-serif;
 }
 
 .box--is-framed {
-  color: welt-color('welt-orange');
+  color: wci-color('welt-orange');
   padding: 10px;
-  border: 3px solid welt-color('channel-highlight');
+  border: 3px solid wci-color('channel-highlight', .5);
 }
