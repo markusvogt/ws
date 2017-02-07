@@ -8,7 +8,7 @@
 
     @if map-has-key($color-map, $color) {
       //@return map-get($color-map, $color);
-      @return rgba(map-get($color-map, $color), 1);
+      @return rgba(map-get($color-map, $color), .3);
     }
   }
   @warn "No color found for `#{$color}` in `$g-common--funkotron-palette` map.";
