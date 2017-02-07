@@ -1,10 +1,42 @@
-// ## Colors
-// Please use the following tool when adding a new color http://chir.ag/projects/name-that-color
+// Welt CI Colors
+
+// helper functions for colors
+// get color from $wci--color-palette
+@function color($color, $alpha) {
+  $color-keys: map-keys($wci--color-palette);
+
+  @each $key in $color-keys {
+    $color-map: map-get($wci--color-palette, $key);
+
+    @if map-has-key($color-map, $color) {
+      @return rgba(map-get($color-map, $color), $alpha);
+    }
+  }
+  @warn "No color found for `#{$color}` in `$g-common--funkotron-palette` map.";
+}
+
+// get color key from $wci-named-color-palette
+@function get-named-color($named-color) {
+  @if map-has-key($wci-named-color-palette, $named-color) {
+    $palette-key: map-get($wci-named-color-palette, $named-color);
+    @return $palette-key;
+  } @else {
+    @warn "No color found for `#{$named-color}` in `$g-common--welt-palette` map.";
+  }
+}
+
+// get named color as rgba()
+@function wci-color($named-color, $alpha: 1) {
+  @return color(get-named-color($named-color), $alpha);
+}
+
+// Color values
+// !! use the following tool when adding a new color http://chir.ag/projects/name-that-color !!
 //
 // scss-lint:disable ColorVariable
 $wci--color-palette: (
         'black': (
-                'black-solid': #000,
+                'black-solid': #000, // ??
                 'blarz': #171b2d
         ),
         'white': (
@@ -14,69 +46,71 @@ $wci--color-palette: (
                 'boulder': #787878,
                 'cod-gray': #1d1d1d,
                 'mine-shaft': #393939,
-                'lighter-gray': #d8d8d8,
+                'lighter-gray': #d8d8d8, // ?? hint icon gray
                 'dusty-gray': #9b9b9b,
-                'gray': #888,
-                'gray-solid': #808080,
+                'gray': #888, // ?? video
+                'gray-solid': #808080, // ?? compact teaser toggle
                 'mercury': #e4e4e4,
-                'river-bed': #485960,
-                'tundora': #4d4d4d,
-                'cape-cod': #454a4a,
-                'pampas': #f9f8f6,
+                'river-bed': #485960, // ?? live ticker
+                'tundora': #4d4d4d, // ??
+                'cape-cod': #454a4a, // ??
+                'pampas': #f9f8f6, // ?? 2x google search
                 'satin-linen': #ede9e1,
                 "outer-space": #383e42,
-                "wild-sand": #f5f5f5
+                "wild-sand": #f5f5f5 // ?? 1x asmi coop teaser
         ),
         'beige': (
                 'cararra': #edece8,
                 'desert-storm': #f9f9f8
         ),
         'blue': (
-                'blue-lagoon': #00728f,
-                'bondi-blue': #008cbd,
-                'botticelli': #c8d8e2,
-                'chambray': #334f80,
-                'dodger-blue': #20b0ff,
+                'blue-lagoon': #00728f, // ??
+                'bondi-blue': #008cbd, // ??
+                'botticelli': #c8d8e2, // ??
+                'chambray': #334f80, // ??
+                'dodger-blue': #20b0ff, // ??
                 'matisse': #246ea7,
-                'scorpion': #575757,
-                'twilight-blue': #064b71,
-                'prussian-blue': #003a5a, // welt blue -> don't use this color name, use only: welt-color('welt-blue')
-                'teal-blue': #064b71
+                'scorpion': #575757, // ??
+                'twilight-blue': #064b71, // ?? 1x login navi - same as teal-blue
+                'prussian-blue': #003a5a,
+                'teal-blue': #064b71 // ?? same as twilight-blue
         ),
         'orange': (
-                'carrot-orange': #f18825, // N24 orange -> don't use this color name, use only a color from $g-common--welt-palette
+                'carrot-orange': #f18825,
         ),
         'red': (
                 'disco': #741057,
-                'red-solid': #f00,
-                'shiraz': #b71336,
-                'cardinal': #b91435
+                'red-solid': #f00, // ??
+                'shiraz': #b71336, // live ticker
+                'cardinal': #b91435 // ??
         ),
         'green': (
-                'hippie-green': #64964b,
-                'tropical-rain-forest': #006650,
+                'hippie-green': #64964b, // live ticker
+                'tropical-rain-forest': #006650, // ??
                 'summer-green': #99b7a5
         ),
         'yellow': (
-                'golden-dream': #edc31e
+                'golden-dream': #edc31e // live ticker
         )
 ) !default;
 
 // ## Welt-Palette
-// Internal names for better readability. 'welt-blue' is better than 'prussian-blue'
-// [1] indicates the live state of content
-// [2] indicates breaking news content
-// [3] indicates gray bullet points
-// [4] indicates channel teaser section + topic text
-// [5] indicates all highlighted (normally 'welt-orange') elements in channel teaser
-$wci--welt-palette: (
-        'welt-blue': 'prussian-blue',
-        'welt-orange': 'carrot-orange',
-        'live-state': 'carrot-orange', // [1]
-        'breaking': 'carrot-orange', // [2]
-        'gray-bullets': 'cararra', // [3]
-        'channel-gray': 'outer-space', // [4]
-        'channel-highlight': 'summer-green' // [5]
+// Internal names for better readability. 'welt-blue' is better than 'prussian-blue' - we use only this names
+// [1] default welt blue
+// [2] default welt orange
+// [3] indicates the live state of content
+// [4] indicates breaking news content
+// [5] indicates gray bullet points
+// [6] indicates channel teaser section + topic text
+// [7] indicates all highlighted (normally 'welt-orange') elements in channel teaser
+$wci-named-color-palette: (
+        'welt-blue': 'prussian-blue', // [1]
+        'welt-orange': 'carrot-orange', // [2]
+        'live-state': 'carrot-orange', // [3]
+        'breaking': 'carrot-orange', // [4]
+        'gray-bullets': 'cararra', // [5]
+        'channel-gray': 'outer-space', // [6]
+        'channel-highlight': 'summer-green' // [7]
 ) !default;
 
 // scss-lint:enable ColorVariable
