@@ -32,6 +32,6 @@
 // usage e.g.:
 // welt-color('welt-blue')
 
-@function welt-color($named-color, $alpha) {
+@function wci-color($named-color, $alpha) {
   @return color(get-welt-color($named-color), $alpha);
 }
