@@ -36,7 +36,7 @@ colors:
     {% for group in page.colors %}
     <div>
         <h3>{{ group.name | capitalize }}</h3>
-        <ul>
+        <ul class="color-list">
             {% for item in group.items %}
             <li>
                 <div class="dot" style="background:#{{ item.hex }}"></div>
