@@ -1,20 +1,20 @@
 h1 {
-  color: wci-named-color('welt-blue', .8);
-  border-bottom: 2px solid wci-color('welt-orange', 1);
+  color: wci-color('welt-blue', .8);
+  border-bottom: 2px solid color('welt-orange');
   font-family: sans-serif;
 }
 
 .box--is-framed {
-  color: wci-named-color('welt-orange');
+  color: wci-color('welt-orange');
   padding: 10px;
-  border: 3px solid wci-named-color('channel-highlight', .4);
+  border: 3px solid wci-color('channel-highlight', .4);
 }
 
 .dot {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  border: 2px solid wci-color('blarz', 1);
+  border: 2px solid color('blarz');
 }
 
 .color-list {

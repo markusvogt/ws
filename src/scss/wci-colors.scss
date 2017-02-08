@@ -1,19 +1,8 @@
 // Welt CI Colors
 
 // helper functions for colors
-
-// get color key from $wci-named-color-palette
-@function _wci-get-named-color($named-color) {
-  @if map-has-key($wci-named-color-palette, $named-color) {
-    $palette-key: map-get($wci-named-color-palette, $named-color);
-    @return $palette-key;
-  } @else {
-    @warn "No color found for `#{$named-color}` in `$wci-named-color-palette` map.";
-  }
-}
-
 // get color from $wci--color-palette
-@function wci-color($color, $alpha) {
+@function color($color, $alpha) {
   $color-keys: map-keys($wci--color-palette);
 
   @each $key in $color-keys {
@@ -23,12 +12,22 @@
       @return rgba(map-get($color-map, $color), $alpha);
     }
   }
-  @warn "No color found for `#{$color}` in `$wci--color-palette` map.";
+  @warn "No color found for `#{$color}` in `$g-common--funkotron-palette` map.";
+}
+
+// get color key from $wci-named-color-palette
+@function get-named-color($named-color) {
+  @if map-has-key($wci-named-color-palette, $named-color) {
+    $palette-key: map-get($wci-named-color-palette, $named-color);
+    @return $palette-key;
+  } @else {
+    @warn "No color found for `#{$named-color}` in `$g-common--welt-palette` map.";
+  }
 }
 
 // get named color as rgba()
-@function wci-named-color($named-color, $alpha: 1) {
-  @return wci-color(_wci-get-named-color($named-color), $alpha);
+@function wci-color($named-color, $alpha: 1) {
+  @return color(get-named-color($named-color), $alpha);
 }
 
 // Color values
