@@ -1,13 +1,13 @@
 h1 {
-  color: wci-color('welt-blue', .8);
-  border-bottom: 2px solid wci-color('welt-orange');
+  color: wci-named-color('welt-blue', .8);
+  border-bottom: 2px solid wci-named-color('welt-orange');
   font-family: sans-serif;
 }
 
 .box--is-framed {
-  color: wci-color('welt-orange');
+  color: wci-named-color('welt-orange');
   padding: 10px;
-  border: 3px solid wci-color('channel-highlight', .4);
+  border: 3px solid wci-named-color('channel-highlight', .4);
 }
 
 .dot {
