@@ -19,9 +19,11 @@ h1 {
 
 .color-list {
   display: flex;
-  justify-content: space-around; 
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .color-list-item {
-  width: 50px;
+  width: 100px;
+  list-style-type: none;
 }
