@@ -51,12 +51,16 @@ $wci--color-palette: (
 // [5] indicates gray bullet points
 // [6] indicates channel teaser section + topic text
 // [7] indicates all highlighted (normally 'welt-orange') elements in channel teaser
-$wci-named-color-palette: (
+// [8] default font color on bright background
+// [9] default font color on dark background
+$wci--named-color-palette: (
         'welt-blue': 'prussian-blue', // [1]
         'welt-orange': 'carrot-orange', // [2]
         'live-state': 'carrot-orange', // [3]
         'breaking': 'carrot-orange', // [4]
         'gray-bullets': 'cararra', // [5]
         'channel-gray': 'outer-space', // [6]
-        'channel-highlight': 'summer-green' // [7]
+        'channel-highlight': 'summer-green', // [7]
+        'dark-text-color': 'cod-gray', // [8]
+        'bright-text-color': 'white-solid' // [9]
 ) !default;

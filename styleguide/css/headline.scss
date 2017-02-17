@@ -10,6 +10,18 @@ h1 {
   border: 3px solid wci-named-color('channel-highlight', .4);
 }
 
+.box--is-dark-bg {
+  background-color: wci-named-color('cod-gray');
+  color: pick-color-for-bg-color(wci-named-color('cod-gray'));
+  padding: 10px;
+}
+
+.box--is-dark-bg {
+  background-color: wci-color('cararra');
+  color: pick-color-for-bg-color(wci-color('cararra'));
+  padding: 10px;
+}
+
 .dot {
   width: 50px;
   height: 50px;

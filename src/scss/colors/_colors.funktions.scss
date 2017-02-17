@@ -1,16 +1,37 @@
-// helper functions for colors
+// Helper functions for colors
 
-// get color key from $wci-named-color-palette
+// Get a color key from named color palette
+// private function - don't call them directly
+//
+// @param {String} $named-color - Name of the color. One of $wci-named-color-palette
+//
+// @example scss
+//  _wci-get-named-color('welt-blue')
+//
+// @requires {Variable} $wci-named-color-palette
+//
+// @returns {String} color key for $wci--color-palette
 @function _wci-get-named-color($named-color) {
-  @if map-has-key($wci-named-color-palette, $named-color) {
-    $palette-key: map-get($wci-named-color-palette, $named-color);
+  @if map-has-key($wci--named-color-palette, $named-color) {
+    $palette-key: map-get($wci--named-color-palette, $named-color);
     @return $palette-key;
   } @else {
     @warn "No color found for `#{$named-color}` in `$wci-named-color-palette` map.";
   }
 }
 
-// get color from $wci--color-palette
+// Get color value from $wci--color-palette
+//
+// @param {String} $color - Name of the color. One of $wci--color-palette
+// @param {Number} $alpha - [optional] Value for alpha transparency, must be between 0 and 1, also decimal places e.g. .5
+//
+// @example scss
+//  color: wci-color('matisse');
+//  background-color: wci-color('blarz', .5);
+//
+// @requires {Variable} $wci--color-palette
+//
+// @returns {String} hex|rgba() value of the color
 @function wci-color($color, $alpha: 1) {
   $color-keys: map-keys($wci--color-palette);
 
@@ -24,7 +45,76 @@
   @warn "No color found for `#{$color}` in `$wci--color-palette` map.";
 }
 
-// get named color as rgba()
+// Get color value from $wci--named-color-palette
+//
+// @param {String} $named-color - Name of the color. One of $wci--named-color-palette
+// @param {Number} $alpha - [optional] Value for alpha transparency, must be between 0 and 1, also decimal places e.g. .5
+//
+// @example scss
+//  color: wci-named-color('welt-blue');
+//  background-color: wci-named-color('channel-highlight', .4);
+//
+// @requires {Variable} $wci--named-color-palette
+//
+// @returns {String} hex|rgba() value of the color
 @function wci-named-color($named-color, $alpha: 1) {
   @return wci-color(_wci-get-named-color($named-color), $alpha);
+}
+
+// Calculates the RGB luma of a colour
+// private function - don't call them directly
+//
+// This is a helper function called by pick-color-for-bg-color()
+//
+// Math nicked from a great Thoughtbot article by Reda Lemeden:
+// http://robots.thoughtbot.com/closer-look-color-lightness
+//
+// RGB Luma
+// https://de.wikipedia.org/wiki/Luminanz
+//
+// @param {String} $color - hex|rgba() value of a color
+//
+// @example scss
+//  _luma('#ccc')
+//  _luma(rgba(51, 102, 203, .6))
+//
+// @returns {String} weighted sum of nonlinear RGB components
+@function _luma($color) {
+  $-local-red: red(rgba($color, 1.0));
+  $-local-green: green(rgba($color, 1.0));
+  $-local-blue: blue(rgba($color, 1.0));
+
+  @return (0.2126 * $-local-red  +
+           0.7152 * $-local-green +
+           0.0722 * $-local-blue) / 255;
+}
+
+// Picks a colour from two options based on which one is more visible
+// on the given background colour.
+//
+// The functionality based on RGB lama comparison.
+//
+// @param {String} $bg-color - hex|rgba() value of a background-color
+//
+// @example scss
+//  color: pick-color-for-bg-color('#555');
+//  color: pick-color-for-bg-color(rgba(1, 51, 102, .8));
+//
+// @requires {Variable} $wci--bright-text-color
+// @requires {Variable} $wci--dark-text-color
+//
+// @returns {String} hex value of the color
+@function pick-color-for-bg-color($bg-color) {
+  $bg-luma: _luma($bg-color);
+  $dark-text-color-luma: _luma(wci-named-color('dark-text-color'));
+  $bright-text-color-luma: _luma(wci-named-color('bright-text-color'));
+
+  $dark-text-color-diff: abs($bg-luma - $dark-text-color-luma);
+  $bright-text-color-diff: abs($bg-luma - $bright-text-color-luma);
+
+  @if $dark-text-color-diff > $bright-text-color-diff {
+    @return wci-named-color('dark-text-color');
+  } @else {
+    @return wci-named-color('bright-text-color');
+  }
 }
