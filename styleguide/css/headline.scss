@@ -11,8 +11,8 @@ h1 {
 }
 
 .box--is-dark-bg {
-  background-color: wci-named-color('cod-gray');
-  color: pick-color-for-bg-color(wci-named-color('cod-gray'));
+  background-color: wci-color('cod-gray');
+  color: pick-color-for-bg-color(wci-color('cod-gray'));
   padding: 10px;
 }
 
