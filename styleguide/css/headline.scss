@@ -5,7 +5,7 @@ h1 {
 }
 
 .box--is-framed {
-  color: wci-named-color('matisse');
+  color: wci-color('matisse');
   padding: 10px;
   border: 3px solid wci-named-color('channel-highlight', .4);
 }
