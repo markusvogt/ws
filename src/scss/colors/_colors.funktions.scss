@@ -90,7 +90,7 @@
 }
 
 // Picks a colour from two options based on which one is more visible
-// on the given background colour.
+// on the given background color.
 //
 // The functionality based on RGB lama comparison.
 //
@@ -100,8 +100,7 @@
 //  color: pick-color-for-bg-color('#555');
 //  color: pick-color-for-bg-color(rgba(1, 51, 102, .8));
 //
-// @requires {Variable} $wci--bright-text-color
-// @requires {Variable} $wci--dark-text-color
+// @requires {Variable} $wci--named-color-palette with keys 'dark-text-color' and 'bright-text-color'
 //
 // @returns {String} hex value of the color
 @function pick-color-for-bg-color($bg-color) {

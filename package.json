@@ -1,0 +1,18 @@
+{
+  "name": "weltstars",
+  "version": "1.0.0",
+  "description": "generic WELT design assets, like fonts, colors, icons",
+  "repository": "WeltN24/weltstars",
+  "scripts": {
+    "lint": "stylelint './src/scss/*.scss' --syntax scss"
+  },
+  "author": {
+    "name": "Markus Vogt",
+    "email": "markus.vogt@weltn24.de"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "stylelint": "7.9.0",
+    "stylelint-config-standard": "16.0.0"
+  }
+}

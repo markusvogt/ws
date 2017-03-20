@@ -2,42 +2,56 @@
 // This defines all generic colors we used across WELT frontend projects.
 // Custom prefix is 'wci' - stand for 'Welt Corporate Identity'
 
-
 // Color values
 // All colors are part of the $wci-color-palette. If you add a new color, use the following tool for the name:
 // http://chir.ag/projects/name-that-color
 $wci--color-palette: (
         'black': (
-                'blarz': #171b2d
+                'black': #000,
+                'mirage': #171b2d, // blarz
+                'cod-gray': #1d1d1d
         ),
         'white': (
                 'white-solid': #fff
         ),
         'gray': (
+                'dusty-gray': #9c9c9c,
+                'silver': #bcbcbc,
+                'alto': #dfdfdf,
+                'gallery': #eeeeee,
                 'boulder': #787878,
-                'cod-gray': #1d1d1d,
-                'mine-shaft': #393939,
-                'dusty-gray': #9b9b9b,
-                'mercury': #e4e4e4,
-                "outer-space": #383e42
+                'outer-space': #383e42,
+                'river-bed': #485960,
         ),
         'beige': (
-                'cararra': #edece8,
-                'desert-storm': #f9f9f8
+                'cararra': #edece8, // greige
+                'desert-storm': #f9f9f8,
+                'satin-linen': #ede9e1
         ),
         'blue': (
                 'matisse': #246ea7,
-                'prussian-blue': #003a5a,
+                'prussian-blue': #003a5a, // welt blue
+                'blue-lagoon': #00728f,
+                'botticelli': #c8d8e2,
+                'spindle': #a8c3e7,
                 'teal-blue': #064b71
         ),
+        'yellow': (
+                'golden-dream': #edc31e
+        ),
         'orange': (
-                'carrot-orange': #f18825,
+                'carrot-orange': #f18825, // welt orange
+                'sea-buckthorn': #f9b033,
+                'casablanca': #faba50
         ),
         'red': (
                 'disco': #741057,
+                'shiraz': #b71336
         ),
         'green': (
-                'summer-green': #99b7a5
+                'summer-green': #99b7a5,
+                'tropical-rain-forest': #006650,
+                'hippie-green': #64964b
         )
 ) !default;
 
